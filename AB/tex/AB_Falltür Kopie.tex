@@ -1,0 +1,43 @@
+\documentclass[]{schulein}
+%
+\usepackage{schulinf}
+\usepackage{floatflt}
+\kopfDatum{\today} 
+\fach{in-Z2}
+\dokName{Asymetrische Verschlüsselung}
+\keineSeitenzahlen
+\input{ab_preamble}
+%
+\begin{document} 
+%\
+\section*{Ein Verschlüsselungsverfahren entwickeln}
+\subsection*{Szenario}
+Alice und Bob möchten eine geheime Botschaft austauschen. Sie haben jeweils ein Schloss mit passendem Schlüssel zur Verfügung. Alice hat zusätzlich noch einen Briefumschlag für das Verschicken der Nachricht.
+
+\Ueberschrift{Arbeitsauftrag}{pa}
+\par
+Simulieren Sie den Nachrichtenaustausch zwischen Alice und Bob. Entwickeln Sie dazu ein geeignetes Verschlüsselungsverfahren aus- schließlich mit den Ihnen zur Verfügung gestellten Hilfsmitteln.
+
+\textbf{Ziel:} Der Postbote darf die Nachricht nicht mitlesen. (Trotzdem muss Bob die Nachricht entschlüsseln können!)
+
+\begin{minipage}{.5\textwidth}
+\subsection*{Regeln}
+\begin{smallitemize}
+\item Sie müssen die verschlüsselte Nachricht dem \glqq Postboten\grqq\ übergeben. Dieser liefert die Nachricht aus.
+\item Sie dürfen sich vorab persönlich treffen.
+\item Sie dürfen \textbf{nicht} die Nachricht persönlich übergeben. (Persönliche treffen dienen nur dem Austausch über das anzuwendende Verfahren).
+\end{smallitemize}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{tabular}{ccc}
+\includegraphics[width=2.1cm,clip,trim=0cm .4cm 0cm 0cm]{schloss} & 
+%\hspace*{.5cm}\includegraphics[width=2.5cm,clip,trim=0cm .4cm 0cm 0cm]{schloss_2}&
+\includegraphics[width=2.1cm]{umschlag}&
+\includegraphics[width=2.1cm,clip,trim=0cm .4cm 0cm 0cm]{schloss} \\
+\hspace*{-.7cm}\includegraphics[angle=90,width=.8cm,clip,trim=1cm 2cm 30cm 2cm]{key}& &
+\hspace*{-.7cm}\includegraphics[angle=90,width=.8cm,clip,trim=1cm 2cm 30cm 2cm]{key}
+\end{tabular}
+\end{minipage}
+
+\section*{Lösungsvorschlag (Stichpunkte)}
+\end{document}

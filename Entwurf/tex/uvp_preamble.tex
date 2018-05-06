@@ -1,0 +1,49 @@
+\newenvironment{uvp}{%
+	\begin{longtable}{>{\footnotesize}p{2cm}ss>{\footnotesize}p{3cm}}%
+		% Caption
+		% #######
+		\caption{%
+        	\scriptsize Unterrichtsverlaufplan.%
+        		Abk.: SuS: Schülerinnen und Schüler, AB: Arbeitsblatt.%
+        		} \\[1em] % 
+		%
+		% Header (nur) auf der ersten Seite  
+		% #################################          
+        \toprule%
+        \textbf{Phase/Zeit/\newline Dauer} & \textbf{Geplantes Verhalten der Lehrkraft/\textit{Leitimpulse}} &% 
+        	\textbf{Antizipierte Aktivitäten der SuS} &% 
+        \textbf{Sozialform/Medien/\newline Materialien}  \\ \midrule% 			
+        \endfirsthead%
+        %
+        % Header auf den Folgeseiten
+        % ##########################
+        \caption{(Fortzsetzung)}\\ \\%
+   		\toprule%
+        \textbf{Phase/Zeit/\newline Dauer} &\textbf{Geplantes Verhalten der Lehrkraft/\textit{Leitimpulse}} &% 
+        	\textbf{Antizipierte Aktivitäten der SuS}  &% 
+        \textbf{Sozialform/Medien/\newline Materialien}  \\ \midrule% 
+        \endhead%
+		%        
+        % Bei Seitenwechsel Tabelle mit einer Linie abschließen
+		% #####################################################        
+        \bottomrule \addlinespace[0.5em] \multicolumn{4}{c}{(\footnotesize Fortsetzung auf der nächsten Seite)} \\% 
+        \endfoot%
+		%		
+		\bottomrule %
+		\endlastfoot%        	
+
+	}{\end{longtable}}%
+
+\newcommand{\Einstieg}[5]{%
+	\textbf{Einstieg} \newline #1 \newline\textcolor{red}{#2}  & #3 & #4  & #5\\ \addlinespace[.5em]
+}
+\newcommand{\Erarbeitung}[5]{%
+	 \textbf{Erarbeitung} \newline #1 \newline\textcolor{red}{#2} & #3 & #4  & #5\\ \addlinespace[.5em]
+}
+\newcommand{\Sicherung}[5]{%
+	 \textbf{Sicherung} \newline #1 \newline\textcolor{red}{#2} & #3 & #4  & #5\\ \addlinespace[.5em]
+}
+\newcommand{\Gelenk}[1]{%
+	\midrule
+	\multicolumn{4}{p{.95\columnwidth}}{\small \textbf{Gelenkstelle:} #1}\\ \midrule% \addlinespace[.5em]
+}

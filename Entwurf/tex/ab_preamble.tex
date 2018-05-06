@@ -1,0 +1,131 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{environ}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\newcolumntype{s}{>{\footnotesize}X}
+\usepackage{longtable}
+\usepackage{ltxtable}
+\usepackage{pdflscape}
+\usepackage{caption}
+\captionsetup[longtable]{font={scriptsize},position=top,skip=0.5em}
+\usepackage{url} 
+\usepackage{float}
+\setlist{leftmargin=*, label=-, nosep}
+%
+\usepackage[a4paper]{geometry} 
+\geometry{top=25mm,left=25mm ,right=25mm, bottom=3cm} 
+%\usepackage[babel,german=quotes]{csquotes}
+%
+% Pfad der Abbildungen
+\graphicspath{ {../figures/} }
+%
+\setlength{\footheight}{50mm}
+%\ifoot{\footnotesize  Quelle: Biologie heute 7/8, Schroedel 2006\\ Letzte Änderung: \today}
+%\ofoot{Seite Nr. \luecke{1cm}}
+%\ohead{Datum: \today}
+%
+% ----------
+% ÜBERSHRIFT
+% ----------
+\newcommand{\Ueberschrift}[2]{
+	\vskip 1.em
+	\setlength{\tabcolsep}{0mm} % kein Innenrand bei Spaleten
+	\begin{tabularx}{\linewidth}{lXr}
+	{\Large\textbf{\textsf{#1}}} & &
+	\includegraphics[scale=0.2]{#2}\\ % Logo rechtsbündig
+	\hline
+	\end{tabularx}
+	% Spaltenabstand zurücksetzen
+	\setlength{\tabcolsep}{6pt} 
+}
+% ----------
+% HINWEISBOX
+% ----------
+\NewEnviron{hinweisbox}[2]{%
+\par
+\vspace{1em}
+\noindent
+\begin{tikzpicture}[]
+	\node[rectangle,minimum width=1.0\textwidth, inner sep=0pt] (m) {
+		\begin{minipage}{\textwidth}
+			\dimen0\linewidth
+			\advance\dimen0 by -3.0em
+    			\vskip .8em \hspace{1em}
+    			\parbox{\the\dimen0}{
+        			\BODY\vskip .5em}%			
+		\end{minipage}
+		};
+	\draw[#2, very thick, rounded corners, color=#1] (m.south west) rectangle (m.north east);
+\end{tikzpicture}
+}
+%
+% =======================
+% Abbildungstext anpassen
+% =======================
+\usepackage[font={small}, labelfont=bf,figurename=Abb.]{caption}
+%
+% ----------
+% AUFGABENBOX
+% ----------
+\NewEnviron{aufgabenbox}[2]{%
+\par
+\vspace{1em}
+\noindent
+\begin{tikzpicture}[]
+	\node[rectangle,minimum width=1.0\textwidth, inner sep=0pt] (m) {
+		\begin{minipage}{\textwidth}
+			\dimen0\linewidth
+			\advance\dimen0 by -3.0em
+    			\vskip .8em \hspace{1em}
+    			\parbox{\the\dimen0}{
+        			\BODY\vskip .5em}%			
+		\end{minipage}
+		};
+	\draw[solid, thin, color=black] (m.south west) rectangle (m.north east);
+\end{tikzpicture}
+}
+%
+% =====================================
+% Litteraturverzeichnis und son kram...
+% =====================================
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+% BibLaTeX
+\usepackage[
+style=authoryear-icomp,    % Zitierstil authoryear-icomp authoryear,natbib=true
+isbn=false,                % ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
+pagetracker=true,          % ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
+maxbibnames=50,            % maximale Namen, die im Literaturverzeichnis angezeigt werden (ich wollte alle)
+maxcitenames=2,            % maximale Namen, die im Text angezeigt werden, ab 4 wird u.a. nach den ersten Autor angezeigt
+autocite=inline,           % regelt Aussehen für \autocite (inline=\parancite)
+block=space,               % kleiner horizontaler Platz zwischen den Feldern
+backref=false,              % Seiten anzeigen, auf denen die Referenz vorkommt
+backrefstyle=three+,       % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+date=short,                % Datumsformat
+]{biblatex}
+\setlength{\bibitemsep}{1em}     % Abstand zwischen den Literaturangaben
+\setlength{\bibhang}{2em}        % Einzug nach jeweils erster Zeile
+% Heading Literaturverzeichnis anpassen
+%\defbibheading{lit}{\part*{Literaturverzeichnis}
+%	\markboth{\MakeUppercase{\refname}}{\MakeUppercase{\refname}}
+%}
+\bibliography{bib.bib}
+%
+% ----------
+% StickyNote
+% ----------
+%\input{StickyNote}
+%
+% -----------
+% Schriftstil
+% -----------
+%\renewcommand\familydefault{\sfdefault}
